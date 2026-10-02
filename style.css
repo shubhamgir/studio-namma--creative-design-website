@@ -1,0 +1,597 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@100..700&family=Boldonse&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto&display=swap');
+
+#intro-video {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.mouse-follower {
+    width: 15px;
+    height: 15px;
+    position: fixed;
+    background: blue;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(150%, 150%);
+    transition: all 0.3s ease-out;
+    z-index: 9999;
+}
+
+body:has(.hide-dot:hover) .mouse-follower {
+    width: fit-content;
+    height: 50px;
+    font-family: 'Anton', sans-serif;
+    background-color: blue;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    pointer-events: none;
+    transform: translate(20%, 30%) rotate(-8deg);
+}
+
+header {
+    min-height: 100vh;
+}
+
+nav {
+    padding: 1rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.nav-top {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9999;
+}
+
+.nav-top-left {
+    list-style: none;
+    display: flex;
+    width: 25vw;
+    justify-content: space-between;
+    position: relative;
+    left: 0;
+}
+
+.nav-top-right{
+    list-style: none;
+    display: flex;
+    width: 35vw;
+    justify-content: space-between;
+    position: relative;
+    right: 0;
+}
+
+.nav-bottom {
+    position: fixed;
+    left: 0px;
+    bottom: 0;
+    z-index: 9999;
+}
+
+.city-wrapper {
+    display: flex;
+    gap: 18px;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tagline h1 {
+    font-size: clamp(5rem, 10vw, 10rem);
+    font-weight: 500;
+    line-height: 1.1;
+    /* width: min(90%, 800px); */
+    margin-inline: auto;
+    text-align: center;
+}
+
+.home-video {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    margin-bottom: 14rem;
+}
+
+.home-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+}
+
+.home-intro {
+    margin-bottom: 16rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-intro-container p {
+    min-width: 80vw;
+    text-align: center;
+    margin: 1rem 0px;
+}
+
+.home-intro-tagline h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.hover-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.home-intro-visuals {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.home-intro-visuals img {
+    position: absolute;
+    max-height: 40vh;
+    max-width: 20vw;
+    width: auto;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    
+    object-fit: contain;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.2s ease-out;
+}
+
+.projects {
+    margin-bottom: 16rem;
+}
+
+.projects-container {
+    min-height: 120vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playground-heading {
+    margin: 10rem 0px;
+}
+
+.playground-heading h1 {
+    font-size: clamp(2rem, 13vw, 10rem);
+    letter-spacing: 0.05rem;
+    text-align: center;
+}
+
+.projects-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.listItem {
+    width: 49%;
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0.1s linear;
+}
+
+.bg-blur {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.listItem:hover video, .projects-in-view video {
+    display: block;
+}
+
+.listItem:hover .bg-blur, .projects-in-view .bg-blur {
+    backdrop-filter: blur(5px);
+}
+
+.listItem:hover, .projects-in-view {
+    transform: scale(0.98);
+}
+
+.listItem video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    border-radius: 12px;
+}
+
+.services {
+    margin-bottom: 16rem;
+}
+
+.services-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services-content {
+    margin: 7rem 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.services-list-item, .services-in-view {
+    position: relative;
+}
+
+.services-content:hover .services-text-wrapper, .service-content-in-view {
+    color: rgba(0, 0, 0, 0.15);
+}
+
+.services-list-item:hover .services-video-wrapper, .services-in-view .services-video-wrapper {
+    display: block;
+    z-index: 1;
+}
+
+.services-list-item:hover .services-text-wrapper, .services-in-view .services-text-wrapper {
+    display: block;
+    z-index: 2;
+    color: black;
+}
+
+.services-list-item:hover .services-text-wrapper p, .services-in-view .services-text-wrapper p {
+    display: block;
+}
+
+.services-video-wrapper {
+    width: 24rem;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-0%, -50%);
+    border-radius: 1rem;
+    overflow: hidden;
+    clip-path: inset(50% 0% 50% 0%);
+    animation: reveal 0.3s ease forwards;
+}
+
+.services-text-wrapper {
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    transition: all 0.2s ease;
+}
+
+.services-text-wrapper p {
+    position: absolute;
+    inset: 50% -1rem auto auto;
+    transform: translate(120%, -50%);
+    transition: all 0.2s ease;
+}
+
+.services-text-wrapper h1 {
+    font-size: clamp(2rem, 10vw, 6rem);
+    line-height: 1.1;
+    letter-spacing: 0.25rem;
+}
+
+.see-all-btn {
+    width: fit-content;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.see-all-btn svg {
+    transition: all 0.3s ease;
+}
+
+.see-all-btn:hover svg {
+    transform: translate(20%, 0%);
+}
+
+.clients {
+    margin-bottom: 16rem;
+}
+
+.clients-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.clients-list-item img {
+    height: 3.4rem;
+}
+
+.cta {
+    margin-bottom: 9rem;
+}
+
+.cta-heading h1 {
+    font-size: clamp(2.5rem, 8vw, 8rem);
+    line-height: 1.1;
+    letter-spacing: 0.15rem;
+}
+
+.cta-image-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cta-image {
+    width: 10rem;
+    height: clamp(4rem, 9vw, 10rem);
+    display: block;
+    background-image: url('./assets/cta_visual.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.cta-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cta-content {
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
+}
+
+footer {
+    margin-bottom: 3rem;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.footer-video-wrapper {
+    width: clamp(12rem, 15vw, 14rem);
+}
+
+.footer-video-wrapper video {
+    aspect-ratio: 210 / 126;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.footer-content {
+    margin-bottom: 6rem;
+    display: flex;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+    width: 55vw;
+}
+
+.footer-right {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+}
+
+.footer-logo {
+    margin-bottom: 3rem;
+    height: 70vh;
+}
+
+.footer-logo img {
+    height: 100%;
+}
+
+@keyframes reveal {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media screen and (max-width : 768px) {
+    .dark-mode, .contact {
+        display: none;
+    }
+
+    .nav-top-left, .nav-top-right {
+        width: fit-content;
+    }
+
+    .nav-bottom {
+        display: none;
+    }
+
+    .hero, header {
+        min-height: 80vh;
+    }
+
+    .home-video {
+        border-radius: 0.5rem;
+    }
+
+    .home-video, .home-intro, .projects, .services, .clients {
+        margin-bottom: 9rem;
+    }
+
+    .playground-heading {
+        margin: 4rem 0px;
+    }
+
+    .list {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .listItem {
+        width: 100%;
+        border-radius: 0.5rem;
+    }
+
+    .heading p {
+        margin: auto;
+        width: fit-content;
+    }
+
+    .services-content {
+        margin: 4rem 0;
+    }
+
+    .services-list-item:hover .services-video-wrapper, .services-in-view .services-video-wrapper{
+        display: none;
+    }
+
+    .services-list-item:hover .services-text-wrapper p, .services-in-view .services-text-wrapper p {
+        display: none;
+    }
+
+    .clients-list {
+        gap: 2.5rem;
+        justify-content: center;
+    }
+
+    .clients-list-item img {
+        height: 2rem;
+    }
+
+    .cta {
+        margin-bottom: 4rem;
+    }
+
+    .cta-container {
+        gap: 1rem;
+    }
+
+    .cta-content {
+        margin: 0px;
+        gap: 1rem;
+    }
+
+    .cta-text-wrapper {
+        font-size: 1.25rem;
+    }
+
+    .footer-video-wrapper {
+        width: 30%;
+    }
+
+    .footer-hide-video {
+        display: none;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1.875rem;
+    }
+
+    .footer-left {
+        width: 90%;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-right {
+        width: 100%;
+    }
+
+    .footer-logo {
+        height: 40vh;
+    }
+}
+
+@media (max-width : 1280px) and (min-width : 768px) {
+    .nav-top-left {
+        width: 40vw;
+    }
+
+    .nav-bottom-left {
+        display: none;
+    }
+
+    .city-wrapper {
+        width: 100%;
+    }
+
+    .home-video, .home-intro {
+        margin-bottom: 9rem;
+    }
+
+    .playground-heading {
+        margin: 6rem 0px;
+    }
+
+    .services-video-wrapper {
+        width: 18rem;
+    }
+
+    .clients-list {
+        justify-content: center;
+        gap: 2.5rem;
+    }
+
+    .clients-list-item img {
+        height: 2.4rem;
+    }
+
+    .cta {
+        margin-bottom: 6rem;
+    }
+
+    .cta-container {
+        gap: 1.5rem;
+    }
+
+    .cta-content {
+        margin: 0px;
+        gap: 1.5rem;
+    }
+}

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0px 1.5rem;
+    background-color: #e4e4e4;
+    overflow: hidden;
+}
+
+.font-ibm {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+h1, .font-anton {
+    font-family: 'Anton', sans-serif;
+}
+
+.underline {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 5px;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.custom-cursor:hover  {
+    cursor: url('./assets/cursor.svg'), auto;
+}
+
+@media screen and (max-width: 768px) {
+    .underline {
+        text-decoration: none;
+    }
+}
